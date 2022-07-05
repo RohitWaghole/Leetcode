@@ -4,12 +4,12 @@
 class Solution:
     def MissingNumber(self,array,n):
         # code here
-        x = 0
+        l=[0]*n
         for i in array:
-            x^=i
-        for i in range(1,n+1):
-            x^=i
-        return x
+            l[i-1]+=1
+        for i,v in enumerate(l):
+            if v==0:
+                return i+1
         
 
 #{ 

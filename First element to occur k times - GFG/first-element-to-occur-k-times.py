@@ -6,14 +6,9 @@ class Solution:
         # code here
         d = {}
         for i in a:
-            if i in d:
-                d[i]+=1
-                if d[i]==k:
-                    return i
-            else:
-                d[i]=1
-                if d[i]==k:
-                    return i
+            d[i] = d.get(i,0)+1
+            if d[i]==k:
+                return i
         return -1
     
 

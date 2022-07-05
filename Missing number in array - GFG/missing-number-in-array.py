@@ -4,8 +4,12 @@
 class Solution:
     def MissingNumber(self,array,n):
         # code here
-        c = n*(n+1)//2
-        return c-sum(array)
+        x = 0
+        for i in array:
+            x^=i
+        for i in range(1,n+1):
+            x^=i
+        return x
         
 
 #{ 

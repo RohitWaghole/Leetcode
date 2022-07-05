@@ -3,16 +3,14 @@ class Solution:
 	def subsetSums(self, arr, N):
 		# code here
 		self.res = []
-		def f(i,ds,n,arr):
+		def f(i,s,n,arr):
 		    if i>=n:
-		        self.res.append(sum(ds[:]))
+		        self.res.append(s)
 		        return
-		    ds.append(arr[i])
-            f(i+1,ds,n,arr)
-            ds.pop()
-            f(i+1,ds,n,arr)
+            f(i+1,s+arr[i],n,arr)
+            f(i+1,s,n,arr)
             
-        f(0,[],N,arr)
+        f(0,0,N,arr)
         self.res.sort()
         return self.res
             

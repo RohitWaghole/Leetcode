@@ -28,8 +28,6 @@ class Solution:
         return self.getfib(n)
     
     def getfib(self,n):
-        
         if n<=1:
             return n
-        
         return self.getfib(n-1) + self.getfib(n-2)

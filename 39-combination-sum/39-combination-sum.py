@@ -9,9 +9,10 @@ class Solution:
                 if target==0:
                     self.ans.append(ds[:])
                 return
-            ds.append(candidates[i])
-            f(i,ds,target-candidates[i],candidates)
-            ds.pop()
+            if candidates[i]<=target:
+                ds.append(candidates[i])
+                f(i,ds,target-candidates[i],candidates)
+                ds.pop()
             f(i+1,ds,target,candidates)
             
         f(0,[],target,candidates)

@@ -37,24 +37,38 @@
 
 ####################################################################################
 
+# def isSubset( a1, a2, n, m):
+#     a1.sort()
+#     a2.sort()
+#     if n<m:
+#         return "No"
+#     i,j=0,0
+#     while i<n and j<m:
+#         if a1[i]<a2[j]:
+#             i+=1
+#         if a1[i]==a2[j]:
+#             i+=1
+#             j+=1
+#         elif a1[i]>a2[j]:
+#             return "No"
+#     if j==m:
+#         return "Yes"
+#     return "No"
+
+#################################################################################
+
 def isSubset( a1, a2, n, m):
-    a1.sort()
-    a2.sort()
-    if n<m:
-        return "No"
-    i,j=0,0
-    while i<n and j<m:
-        if a1[i]<a2[j]:
-            i+=1
-        if a1[i]==a2[j]:
-            i+=1
-            j+=1
-        elif a1[i]>a2[j]:
-            return "No"
-    if j==m:
-        return "Yes"
-    return "No"
     
+    hashset = set()
+    for i in range(n):
+        hashset.add(a1[i])
+    
+    for i in range(m):
+        if a2[i] in hashset:
+            continue
+        else:
+            return "No"
+    return "Yes"
 # ##################################################################################
 
 # def isSubset( a1, a2, n, m):  

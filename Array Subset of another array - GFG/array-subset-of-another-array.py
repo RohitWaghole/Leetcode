@@ -66,8 +66,7 @@ def isSubset( a1, a2, n, m):
     for i in range(m):
         if a2[i] in hashset:
             continue
-        else:
-            return "No"
+        return "No"
     return "Yes"
 # ##################################################################################
 

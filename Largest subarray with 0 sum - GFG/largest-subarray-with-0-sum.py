@@ -3,21 +3,28 @@
 class Solution:
     def maxLen(self, n, arr):
         #Code here
-        mx = 0
-        d = {}
-        s=0
-        for i,v in enumerate(arr):
-            s+=v
-            if v==0 and mx==0:
-                mx = 1
-            if s==0:
-                mx = i+1
-            if s in d:
-                mx = max(mx,i-d[s])
-            else:
-                d[s]=i
+        hash_map = {}
+        max_length = 0
+        curr_sum = 0
+        
+        for index,value in enumerate(arr):
             
-        return mx
+            curr_sum += value
+            if curr_sum == 0:
+                max_length = index+1
+            
+            if value==0 and max_length == 0:
+                max_length = 1
+                
+            if curr_sum in hash_map:
+                
+                max_length = max(max_length, index - hash_map[curr_sum])
+                
+            else:
+                
+                hash_map[curr_sum] = index
+                
+        return max_length
         
         
         

@@ -2,16 +2,36 @@
 
 def isSubset( a1, a2, n, m):
     
-    for i in range(m):
-        element = a2[i]
-        flag = 1
-        for j in range(n):
-            if a1[j]==element:
-                flag = 0
-                break
-        if flag:
+    # for i in range(m):
+    #     element = a2[i]
+    #     flag = 1
+    #     for j in range(n):
+    #         if a1[j]==element:
+    #             flag = 0
+    #             break
+    #     if flag:
+    #         return "No"
+    # return "Yes"
+    
+    
+    a1.sort()
+    for i in a2:
+        if not binarySearch(a1,i):
             return "No"
     return "Yes"
+    
+def binarySearch(lst,element):
+    
+    start,end = 0, len(lst)-1
+    while start<=end:
+        mid = start+(end-start)//2
+        if lst[mid]==element:
+            return 1
+        if lst[mid]>element:
+            end = mid-1
+        else:
+            start = mid+1
+    return 0
     
     
     

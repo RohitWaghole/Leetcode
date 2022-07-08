@@ -33,12 +33,22 @@
 #         return self.getfib(n-1) + self.getfib(n-2)
 
 #########################################################################################################
+
 # Binet's Formula for the nth Fibonacci number
 
-import math
+# import math
+# class Solution:
+#     def fib(self, n: int) -> int:
+#         root5 = math.sqrt(5)
+#         phi1 = (1 + root5)/2
+#         phi2 = (1 - root5)/2
+#         return int(round(((phi1**n)-(phi2**n))/root5))
+
+#########################################################################################################
+
+
 class Solution:
     def fib(self, n: int) -> int:
-        root5 = math.sqrt(5)
-        phi1 = (1 + root5)/2
-        phi2 = (1 - root5)/2
-        return int(round(((phi1**n)-(phi2**n))/root5))
+        root5 = 5**0.5
+        phi = (1 + root5)/2
+        return int(((phi**n) + 1)/root5)

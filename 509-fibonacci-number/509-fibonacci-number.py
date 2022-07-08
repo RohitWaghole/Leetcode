@@ -23,11 +23,20 @@
     
 #######################################################################################################
 
+# class Solution:
+#     def fib(self, n: int) -> int:
+#         return self.getfib(n)
+    
+#     def getfib(self,n):
+#         if n<=1:
+#             return n
+#         return self.getfib(n-1) + self.getfib(n-2)
+
+#########################################################################################################
+import math
 class Solution:
     def fib(self, n: int) -> int:
-        return self.getfib(n)
-    
-    def getfib(self,n):
-        if n<=1:
-            return n
-        return self.getfib(n-1) + self.getfib(n-2)
+        root5 = math.sqrt(5)
+        phi1 = (1 + root5)/2
+        phi2 = (1 - root5)/2
+        return int(round(((phi1**n)-(phi2**n))/root5))

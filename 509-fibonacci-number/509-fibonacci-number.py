@@ -33,6 +33,8 @@
 #         return self.getfib(n-1) + self.getfib(n-2)
 
 #########################################################################################################
+# Binet's Formula for the nth Fibonacci number
+
 import math
 class Solution:
     def fib(self, n: int) -> int:

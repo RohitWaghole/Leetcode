@@ -27,25 +27,34 @@
 
 
 
+# class Solution:
+#     def subsets(self, nums: List[int]) -> List[List[int]]:
+        
+# #         1. Using Recursion
+
+#         def generate(i,ds,nums,ans):
+            
+#             if i>=len(nums):
+#                 ans.append(ds[:])
+#                 return
+#             ds.append(nums[i])
+#             generate(i+1,ds,nums,ans)
+#             ds.pop()
+#             generate(i+1,ds,nums,ans)
+            
+#         ans = []
+#         generate(0,[],nums,ans)
+#         return ans
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         
-#         1. Using Recursion
-
-        def generate(i,ds,nums,ans):
-            
-            if i>=len(nums):
-                ans.append(ds[:])
-                return
-            ds.append(nums[i])
-            generate(i+1,ds,nums,ans)
-            ds.pop()
-            generate(i+1,ds,nums,ans)
-            
-        ans = []
-        generate(0,[],nums,ans)
+#         2. Using iterative solution
+        
+        ans = [[]]
+        for i in nums:
+            ans += [curr + [i] for curr in ans]
         return ans
-
 
 
 

@@ -7,7 +7,7 @@
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         self.s=[]
-        #ROOT -> LEFT -> RIGHT
+        #ROOT -> RIGHT -> LEFT
         #   REVERSE PREORDER TRAVERSAL
         def preorder(root,level):
             if root:

@@ -1,11 +1,9 @@
 class Solution:
     def countNumbersWithUniqueDigits(self, n: int) -> int:
-        return [1,
-                10,
-                91,
-                739,
-                5275,
-                32491,
-                168571,
-                712891,
-                2345851][n]
+        
+        ans,curr=1,1
+        choices = [9,9,8,7,6,5,4,3,2,1]
+        for i in range(n):
+            curr *= choices[i]
+            ans += curr
+        return ans

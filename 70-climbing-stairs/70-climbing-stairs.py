@@ -25,13 +25,24 @@
 
 ####################################################################################################################
 
+# class Solution:
+#     def climbStairs(self, n: int) -> int:
+#         if n<=2:
+#             return n
+#         prev,prev2=1,2
+#         for i in range(3,n+1):
+#             nxt = prev+prev2
+#             prev=prev2
+#             prev2 = nxt
+#         return nxt
+
+####################################################################################################################
+
 class Solution:
     def climbStairs(self, n: int) -> int:
         if n<=2:
             return n
-        prev,prev2=1,2
-        for i in range(3,n+1):
-            nxt = prev+prev2
-            prev=prev2
-            prev2 = nxt
-        return nxt
+        root5 = 5**0.5
+        phi = (1+root5)/2
+        fib = int((1+phi**(n+1))/root5)
+        return fib

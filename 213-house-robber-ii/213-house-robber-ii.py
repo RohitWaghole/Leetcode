@@ -51,17 +51,45 @@
 
 #########################################################################################################
 
+# class Solution:
+#     def rob(self, nums: List[int]) -> int:
+        
+#         def f(i,nums,dp):
+#             dp[0] = nums[0]
+#             for i in range(1,len(nums)):
+#                 take = nums[i] 
+#                 if i>1: take += dp[i-2]
+#                 notTake = 0 + dp[i-1]
+#                 dp[i] = max(take,notTake)
+#             return dp[-1]
+        
+#         if len(nums)==1:
+#             return nums[0]
+        
+#         a1 = nums[:len(nums)-1]
+#         a2 = nums[1:]
+        
+#         ans1 = f(len(a1)-1,a1,[-1]*len(a1))
+#         ans2 = f(len(a2)-1,a2,[-1]*len(a2))
+        
+#         return max(ans1,ans2)
+
+#########################################################################################################
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         
         def f(i,nums,dp):
-            dp[0] = nums[0]
+            prev = nums[0]
+            prev2 = 0
             for i in range(1,len(nums)):
                 take = nums[i] 
-                if i>1: take += dp[i-2]
-                notTake = 0 + dp[i-1]
-                dp[i] = max(take,notTake)
-            return dp[-1]
+                if i>1: take += prev2
+                notTake = 0 + prev
+                curi = max(take,notTake)
+                prev2 = prev
+                prev = curi
+            return prev
         
         if len(nums)==1:
             return nums[0]

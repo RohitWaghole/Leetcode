@@ -12,19 +12,14 @@ class Solution:
         while head:
             
             if head.val < x:
-                
                 start.next = head
                 start = start.next
-                
             else:
-                
                 after.next = head
                 after = after.next
-                
             head = head.next
-            
+        
         after.next = None
         
         start.next = after_node.next
-        
         return start_node.next

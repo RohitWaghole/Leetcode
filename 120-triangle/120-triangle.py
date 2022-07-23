@@ -33,25 +33,47 @@
 #         dp = [[-1]*n for i in range(n)]
 #         return f(0,0,triangle,n,dp)
 
+# ###########################################################################################
+
+# class Solution:
+#     def minimumTotal(self, triangle: List[List[int]]) -> int:
+        
+#         def f(triangle,n,dp):
+            
+#             for j in range(n):
+#                 dp[n-1][j] = triangle[n-1][j]
+                
+#             for i in range(n-2,-1,-1):
+#                 for j in range(i,-1,-1):
+#                     down = dp[i+1][j]
+#                     diagonal = dp[i+1][j+1]
+#                     dp[i][j] = min(down,diagonal) + triangle[i][j]
+#             return dp[0][0]
+        
+#         n = len(triangle[-1])
+#         dp = [[-1]*n for i in range(n)]
+#         return f(triangle,n,dp)
+    
 ###########################################################################################
 
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         
-        def f(triangle,n,dp):
+        def f(triangle,n):
             
+            prev = [0]*n
             for j in range(n):
-                dp[n-1][j] = triangle[n-1][j]
+                prev[j] = triangle[n-1][j]
                 
             for i in range(n-2,-1,-1):
+                curr = [0]*n
                 for j in range(i,-1,-1):
-                    down = dp[i+1][j]
-                    diagonal = dp[i+1][j+1]
-                    dp[i][j] = min(down,diagonal) + triangle[i][j]
-            return dp[0][0]
+                    down = prev[j]
+                    diagonal = prev[j+1]
+                    curr[j] = min(down,diagonal) + triangle[i][j]
+                prev = curr
+            return prev[0]
         
         n = len(triangle[-1])
-        dp = [[-1]*n for i in range(n)]
-        return f(triangle,n,dp)
-    
-    
+        return f(triangle,n)
+        

@@ -84,7 +84,6 @@ class Solution:
                 return 0
             
             prev = [0]*n
-            prev[0] = 0
             for i in range(m):
                 temp = [0]*n
                 for j in range(n):

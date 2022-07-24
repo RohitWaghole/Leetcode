@@ -9,10 +9,7 @@ class Solution:
             s.add(i)
         for i in s:
             x = bin(i).count('1')
-            if x in cnt:
-                cnt[x]+=1
-            else:
-                cnt[x] = 1
+            cnt[x] = cnt.get(x,0)+1
                 
         for i in range(1,30):
             for j in range(1,30):

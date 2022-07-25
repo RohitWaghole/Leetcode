@@ -1,27 +1,17 @@
 
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        z,o,t = 0,0,0
-        for i in nums:
-            if i==0:
-                z += 1
-            elif i==1:
-                o += 1
+        start,mid,end = 0,0,len(nums)-1
+        while mid<=end:
+            if nums[mid]==0:
+                nums[start],nums[mid]=nums[mid],nums[start]
+                start+=1
+                mid+=1
+            elif nums[mid]==1:
+                mid+=1
             else:
-                t += 1
-        i = 0
-        while z:
-            nums[i]=0
-            i+=1
-            z-=1
-        while o:
-            nums[i]=1
-            i+=1
-            o-=1
-        while t:
-            nums[i]=2
-            i+=1
-            t-=1
+                nums[mid],nums[end] = nums[end],nums[mid]
+                end-=1
 
 
 

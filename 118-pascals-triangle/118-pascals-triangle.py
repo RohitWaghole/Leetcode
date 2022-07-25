@@ -1,3 +1,6 @@
+# T.C. -> ~O(N^2)
+# S.C. -> O(N)
+
 class Solution:
     def generate(self, n: int) -> List[List[int]]:
         

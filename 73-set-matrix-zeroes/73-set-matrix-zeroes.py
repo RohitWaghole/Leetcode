@@ -1,3 +1,6 @@
+# T.C. -> O(N x M + (N + M))
+# S.C. -> O(1)
+
 # class Solution:
 #     def setZeroes(self, matrix: List[List[int]]) -> None:
         
@@ -18,6 +21,9 @@
 
 ##########################################################################################################
 
+# T.C. -> O(N x M)
+# S.C. -> O(N + M)
+
 # class Solution:
 #     def setZeroes(self, matrix: List[List[int]]) -> None:
         
@@ -34,6 +40,9 @@
 #                     matrix[i][j] = 0
 
 ##########################################################################################################
+
+# T.C. -> 2 x O(N x M)
+# S.C. -> O(1)
 
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:

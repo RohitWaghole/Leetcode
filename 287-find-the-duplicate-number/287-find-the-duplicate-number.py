@@ -1,3 +1,6 @@
+# T.C. -> O(N logN)
+# S.C. -> O(1)
+
 # class Solution:
 #     def findDuplicate(self, nums: List[int]) -> int:
         
@@ -7,6 +10,9 @@
 #                 return nums[i]
 
 ##############################################################################
+
+# T.C. -> O(N)
+# S.C. -> O(N)
 
 # class Solution:
 #     def findDuplicate(self, nums: List[int]) -> int:
@@ -20,6 +26,10 @@
 
 ##############################################################################
 
+# T.C. -> O(N)
+# S.C. -> O(1)
+# HERE WE MODIFY THE ARRAY SO NOT MUCH EFFICIENT BECAUSE WE HAVE TO TRAVEL AGAIN TO MAKE ARRAY LIKE PREVIOUS
+
 # class Solution:
 #     def findDuplicate(self, nums: List[int]) -> int:
 #         for i in nums:
@@ -29,6 +39,9 @@
 
 ##############################################################################
 
+# LINKED LIST CYCLE METHOD
+# T.C. -> O(N)
+# S.C. -> O(1)
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         

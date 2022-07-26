@@ -8,32 +8,26 @@
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
-        def f(root,target,l):
+        def f(root,target,ds):
             if not root:
                 return False
-            
-            l.append(root.val)
+            ds.append(root.val)
             if root==target:
                 return True
-            
-            left = f(root.left,target,l)
-            right = f(root.right,target,l)
+            left = f(root.left,target,ds)
+            right = f(root.right,target,ds)
             
             if left or right:
                 return True
-            l.pop()
+            ds.pop()
             return False
-        
         
         l1,l2 = [],[]
         f(root,p,l1)
         f(root,q,l2)
         
         i,j = 0,0
-        m,n = len(l1),len(l2)
-        
-        while i<m and j<n and l1[i]==l2[j]:
+        while i<len(l1) and j<len(l2) and l1[i]==l2[j]:
             i+=1
             j+=1
-        
         return TreeNode(l1[i-1])

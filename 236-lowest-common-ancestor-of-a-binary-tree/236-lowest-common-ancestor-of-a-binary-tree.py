@@ -9,41 +9,64 @@
 # BRUTE FORCE
 # T.C. -> O(N) + O(N) + O(N)
 # S.C. -> O(N) + O(N)
+# class Solution:
+#     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        
+#         def f(root,target,l):
+#             if not root:
+#                 return False
+            
+#             l.append(root.val)
+#             if root==target:
+#                 return True
+            
+#             left = f(root.left,target,l)
+#             right = f(root.right,target,l)
+            
+#             if left or right:
+#                 return True
+#             l.pop()
+#             return False
+        
+        
+#         l1,l2 = [],[]
+#         f(root,p,l1)
+#         f(root,q,l2)
+        
+#         i,j = 0,0
+#         m,n = len(l1),len(l2)
+        
+#         while i<m and j<n and l1[i]==l2[j]:
+#             i+=1
+#             j+=1
+        
+#         return TreeNode(l1[i-1])
+    
+#########################################################################################################
+
+# T.C. -> O(N)
+# S.C. -> O(N)
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
+        if root==None or root==p or root==q:
+            return root
         
-        def f(root,target,l):
-            if not root:
-                return False
-            
-            l.append(root.val)
-            if root==target:
-                return True
-            
-            left = f(root.left,target,l)
-            right = f(root.right,target,l)
-            
-            if left or right:
-                return True
-            l.pop()
-            return False
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        
+        if left==None:
+            return right
+        if right==None:
+            return left
+        return root
         
         
-        l1,l2 = [],[]
-        f(root,p,l1)
-        f(root,q,l2)
         
-        i,j = 0,0
-        m,n = len(l1),len(l2)
         
-        while i<m and j<n and l1[i]==l2[j]:
-            i+=1
-            j+=1
         
-        return TreeNode(l1[i-1])
-    
-    
-    
-    
-    
+        
+        
+        
+        

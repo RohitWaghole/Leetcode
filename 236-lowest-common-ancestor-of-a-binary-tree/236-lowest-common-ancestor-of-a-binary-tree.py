@@ -5,6 +5,10 @@
 #         self.left = None
 #         self.right = None
 
+
+# BRUTE FORCE
+# T.C. -> O(N) + O(N) + O(N)
+# S.C. -> O(N) + O(N)
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         

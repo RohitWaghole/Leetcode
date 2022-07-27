@@ -7,6 +7,7 @@
 
 # T.C. -> O(N)
 # S.C. -> O(N)
+
 # class Solution:
 #     def __init__(self):
 #         self.prev = None
@@ -24,17 +25,44 @@
 
 # T.C. -> O(N)
 # S.C. -> O(N)
+
+# class Solution:
+#     def flatten(self, root: Optional[TreeNode]) -> None:
+#         if not root:
+#             return
+#         stack = [root]
+#         while stack:
+#             curr = stack.pop()
+#             if curr.right:
+#                 stack.append(curr.right)
+#             if curr.left:
+#                 stack.append(curr.left)
+#             if stack:
+#                 curr.right = stack[-1]
+#             curr.left = None
+
+#######################################################################################
+
+# T.C. -> O(N)
+# S.C. -> O(1)
+
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-        if not root:
-            return
-        stack = [root]
-        while stack:
-            curr = stack.pop()
-            if curr.right:
-                stack.append(curr.right)
+        
+        curr = root
+        while curr:
+            
             if curr.left:
-                stack.append(curr.left)
-            if stack:
-                curr.right = stack[-1]
-            curr.left = None
+                prev = curr.left
+            
+                while prev.right:
+                    prev = prev.right
+
+                prev.right = curr.right
+                curr.right = curr.left
+                curr.left = None
+        
+            curr = curr.right
+        
+        
+        

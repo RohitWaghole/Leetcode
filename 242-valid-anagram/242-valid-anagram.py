@@ -4,26 +4,26 @@
 
 #########################################################################################
 
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        sd = Counter(s)
-        td = Counter(t)
-        return sd==td
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         sd = Counter(s)
+#         td = Counter(t)
+#         return sd==td
 
 ##########################################################################################
 
-# class Solution:
-#     def isAnagram(self, s: str, t: str) -> bool:
-#         ls,lt = [0]*26,[0]*26
-#         if len(s)!=len(t):
-#             return False
-#         for i in range(len(s)):
-#             ls[ord(s[i])-ord('a')]+=1
-#             lt[ord(t[i])-ord('a')]+=1
-#         for i in range(26):
-#             if ls[i]!=lt[i]:
-#                 return False
-#         return True
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        ls,lt = [0]*26,[0]*26
+        if len(s)!=len(t):
+            return False
+        for i in range(len(s)):
+            ls[ord(s[i])-ord('a')]+=1
+            lt[ord(t[i])-ord('a')]+=1
+        for i in range(26):
+            if ls[i]!=lt[i]:
+                return False
+        return True
 
 ##########################################################################################
 

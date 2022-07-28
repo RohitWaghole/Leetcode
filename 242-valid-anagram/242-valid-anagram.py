@@ -1,14 +1,14 @@
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        return sorted(s)==sorted(t)
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         return sorted(s)==sorted(t)
 
 #########################################################################################
 
-# class Solution:
-#     def isAnagram(self, s: str, t: str) -> bool:
-#         sd = Counter(s)
-#         td = Counter(t)
-#         return sd==td
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        sd = Counter(s)
+        td = Counter(t)
+        return sd==td
 
 ##########################################################################################
 

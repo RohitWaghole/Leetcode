@@ -136,4 +136,7 @@ class NumArray:
         self.nums[index] = val
 
     def sumRange(self, left, right):
-        return sum(self.nums[left:right+1]) if right-left < len(self.nums)//2 else self.sums - sum(self.nums[:left]) - sum(self.nums[right+1:])
+    
+        if right-left < len(self.nums)//2:
+            return sum(self.nums[left:right+1])
+        return self.sums - sum(self.nums[:left]) - sum(self.nums[right+1:])

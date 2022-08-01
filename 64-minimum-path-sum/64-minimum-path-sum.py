@@ -135,34 +135,26 @@
         
         
         
-        
+
 
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         
-        def f(i,j,grid,dp):
-            
-            if i<0 or j<0:
-                return float('inf')
-            if i==0 and j==0:
-                return grid[i][j]
-            
-            if dp[i][j]!=-1:
-                return dp[i][j]
-            
-            up = grid[i][j] + f(i-1,j,grid,dp)
-            left = grid[i][j] + f(i,j-1,grid,dp)
-            
-            dp[i][j] = min(up,left)
-        
-            return dp[i][j]
-        
         m,n = len(grid),len(grid[0])
-        dp = [[-1]*n for i in range(m)]
-        return f(m-1,n-1,grid,dp)
-        
-        
-        
+        dp = [[0]*n for i in range(m)]
+
+        for i in range(m):
+            for j in range(n):
+                if i==0 and j==0:
+                    dp[i][j] = grid[i][j]
+                    continue
+                
+                up,left = float('inf'),float('inf')
+                if i>0: up = dp[i-1][j]
+                if j>0: left = dp[i][j-1]
+                
+                dp[i][j] = min(up,left) + grid[i][j]
+        return dp[m-1][n-1]
         
         
         

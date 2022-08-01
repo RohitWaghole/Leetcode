@@ -103,21 +103,17 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         
-        def f(m,n,dp):
-            if m==0 and n==0:
-                return 1
-            if m<0 or n<0:
-                return 0
-            if dp[m][n]!=-1:
-                return dp[m][n]
-            up = f(m-1,n,dp)
-            left = f(m, n-1,dp)
-            dp[m][n] = up+left
-            return dp[m][n]
-        
-        dp = [[-1]*n for i in range(m)]
-        return f(m-1,n-1,dp)
-        
+        dp = [[0]*n for i in range(m)]
+        for i in range(m):
+            for j in range(n):
+                up,left = 0,0
+                if i==0 and j==0:
+                    dp[i][j] = 1
+                    continue
+                if i>0: up = dp[i-1][j]
+                if j>0: left = dp[i][j-1]
+                dp[i][j] = up+left
+        return dp[m-1][n-1]
         
         
         

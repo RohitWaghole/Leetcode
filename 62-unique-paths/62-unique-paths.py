@@ -61,63 +61,20 @@
 
 #####################################################################################################
 
-# class Solution:
-#     def uniquePaths(self, m: int, n: int) -> int:
-        
-#         dp = [0]*n
-#         dp[0] = 1
-#         for i in range(m):
-#             temp = [0]*n
-#             for j in range(n):
-#                 up,left = 0,0
-#                 up = dp[j]
-#                 if j>0: left = temp[j-1]
-                
-#                 temp[j] = up + left
-#             dp = temp
-#         return dp[-1]
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         
-        prev = [0]*n
-        prev[0] = 1
+        dp = [0]*n
+        dp[0] = 1
         for i in range(m):
             temp = [0]*n
             for j in range(n):
                 up,left = 0,0
-                up = prev[j]
+                up = dp[j]
                 if j>0: left = temp[j-1]
-                temp[j] = up+left
-            prev = temp
-        return prev[n-1]
-        
-        
-        
-        
-        
+                
+                temp[j] = up + left
+            dp = temp
+        return dp[-1]
         
         

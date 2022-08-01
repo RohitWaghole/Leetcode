@@ -86,94 +86,31 @@
 ##########################################################################################################
 
 
-# class Solution:
-#     def minPathSum(self, grid: List[List[int]]) -> int:
-        
-#         m,n = len(grid), len(grid[0])
-        
-#         prev = [0]*m
-        
-#         for i in range(m):
-#             cur = [0]*n
-#             for j in range(n):
-#                 if i==0 and j==0:
-#                     cur[j] = grid[0][0]
-#                 else:
-#                     up,left = 0,0
-#                     # previous things
-#                     if i>0: 
-#                         up = grid[i][j] + prev[j]
-#                     else:
-#                         up = float('inf')
-#                     # current things
-#                     if j>0: 
-#                         left = grid[i][j] + cur[j-1]
-#                     else:
-#                         left = float('inf')
-#                     cur[j] = min(up,left)
-#             prev = cur
-#         return prev[n-1]
-        
-                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         
-        m,n = len(grid),len(grid[0])
-        prev = [0]*n
-
+        m,n = len(grid), len(grid[0])
+        
+        prev = [0]*m
+        
         for i in range(m):
-            curr = [0]*n
+            cur = [0]*n
             for j in range(n):
                 if i==0 and j==0:
-                    curr[j] = grid[i][j]
-                    continue
-                
-                up,left = float('inf'),float('inf')
-                if i>0: up = prev[j]
-                if j>0: left = curr[j-1]
-                
-                curr[j] = min(up,left) + grid[i][j]
-            prev = curr
+                    cur[j] = grid[0][0]
+                else:
+                    up,left = 0,0
+                    # previous things
+                    if i>0: 
+                        up = grid[i][j] + prev[j]
+                    else:
+                        up = float('inf')
+                    # current things
+                    if j>0: 
+                        left = grid[i][j] + cur[j-1]
+                    else:
+                        left = float('inf')
+                    cur[j] = min(up,left)
+            prev = cur
         return prev[n-1]
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         

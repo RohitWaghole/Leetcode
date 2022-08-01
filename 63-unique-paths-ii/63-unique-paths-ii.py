@@ -77,37 +77,93 @@
 
 #################################################################################################
 
+# class Solution:
+#     def uniquePathsWithObstacles(self, grid: List[List[int]]) -> int:
+#         def f(m,n,grid):
+#             if grid[0][0] == 1:
+#                 return 0
+            
+#             prev = [0]*n
+#             for i in range(m):
+#                 temp = [0]*n
+#                 for j in range(n):
+#                     if i==0 and j==0:
+#                         temp[j] = 1
+#                         continue
+                    
+#                     if grid[i][j]==0:
+#                         up,left=0,0
+#                         if i>0: up = prev[j]
+#                         if j>0: left = temp[j-1]
+#                         temp[j] = up+left
+#                 prev = temp
+#             return prev[n-1]
+            
+        
+#         m = len(grid)
+#         n = len(grid[0])
+        
+        
+#         return f(m,n,grid)
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 class Solution:
     def uniquePathsWithObstacles(self, grid: List[List[int]]) -> int:
-        def f(m,n,grid):
-            if grid[0][0] == 1:
+        
+        def f(i,j,grid,dp):
+            
+            if i<0 or j<0:
                 return 0
-            
-            prev = [0]*n
-            for i in range(m):
-                temp = [0]*n
-                for j in range(n):
-                    if i==0 and j==0:
-                        temp[j] = 1
-                        continue
-                    
-                    if grid[i][j]==0:
-                        up,left=0,0
-                        if i>0: up = prev[j]
-                        if j>0: left = temp[j-1]
-                        temp[j] = up+left
-                prev = temp
-            return prev[n-1]
-            
+            if grid[i][j]==1:
+                return 0
+            if i==0 and j==0:
+                return 1
+            if dp[i][j]!=-1:
+                return dp[i][j]
+            up = f(i-1,j,grid,dp)
+            left = f(i,j-1,grid,dp)
+            dp[i][j] = up + left
+            return dp[i][j]
         
-        m = len(grid)
-        n = len(grid[0])
-        
-        
-        return f(m,n,grid)
-    
-        
-    
+        m,n = len(grid),len(grid[0])
+        dp = [[-1]*n for i in range(m)]
+        return f(m-1,n-1,grid,dp)
     
     
     

@@ -30,6 +30,12 @@ Space Complexity: O(N), as we are using a separate data structure.
     
 #########################################################################################################
 
+'''
+Time Complexity: O(NlogN) + O(N). O(NlogN) for sorting and O(N) for traversing through the array.
+
+Space Complexity: O(N) to return the answer of the merged intervals.
+'''
+
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         

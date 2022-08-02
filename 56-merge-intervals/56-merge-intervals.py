@@ -45,14 +45,12 @@ class Solution:
         a = intervals[0]
         
         for i in range(1,len(intervals)):
-            f = 0
             b = intervals[i]
             
             if a[1]>=b[0]:
                 a[1] = max(a[1],b[1])
             else:
                 res.append(a)
-                f = 1
                 a = intervals[i]
         res.append(a)
         return res

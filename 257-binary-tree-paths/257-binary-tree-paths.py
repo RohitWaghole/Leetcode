@@ -9,19 +9,22 @@ class Solution:
         self.result = []
         
         def f(root,ds):
+            
             if root==None:
                 return False
             
             ds.append(root.val)
-            left = f(root.left,ds)
-            right = f(root.right,ds)
+            left = f(root.left, ds)
+            right = f(root.right, ds)
             
-            if left==False and right==False:
+            if not (left or right):
                 self.result.append(ds[:])
             ds.pop()
             return True
-        
-        f(root,[])
-        
-        result = ['->'.join(str(t) for t in i) for i in self.result]
-        return result
+        f(root, [])
+        ans = []
+        for i in self.result:
+            a = '->'.join(str(c) for c in i)
+            ans.append(a)
+        return ans
+            

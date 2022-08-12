@@ -7,7 +7,7 @@
 class Solution:
     def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
         
-        self.res = []
+        self.res = '~'
         def f(root,ds):
             
             if not root:
@@ -18,10 +18,9 @@ class Solution:
             right = f(root.right, ds)
             
             if not (left or right):
-                self.res.append(''.join(ds[::-1]))
+                self.res = min(self.res,''.join(ds[::-1]))
             ds.pop()
             return True
         
         f(root,[])
-        self.res.sort()
-        return self.res[0]
+        return self.res

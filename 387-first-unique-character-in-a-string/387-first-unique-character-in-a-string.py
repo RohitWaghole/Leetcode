@@ -6,9 +6,10 @@ class Solution:
         for ch in s:
             frequency[ch] = frequency.get(ch, 0)+1
         
-        for ch, freq in frequency.items():
-            
-            if freq==1:
-                return s.index(ch)
+        for ind, ch in enumerate(s):
+            if frequency[ch]==1:
+                return ind
         
         return -1
+
+        

@@ -38,13 +38,10 @@
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        mx = -float('inf')
-        mn = 0
-        for i in nums:
-            mn = max(mn+i,i)
-            mx = max(mx,mn)
-        return mx
-
+        for i in range(1,len(nums)):
+            if nums[i-1]>0:
+                nums[i]+=nums[i-1]
+        return max(nums)
 
 
 

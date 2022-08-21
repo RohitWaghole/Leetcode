@@ -9,7 +9,7 @@
 #                 s = 0
 #         return mx
     
-#################################################################################
+# #################################################################################
 
 # class Solution:
 #     def maxSubArray(self, nums: List[int]) -> int:
@@ -20,12 +20,59 @@
 #             mx = max(mx, mn)
 #         return mx
 
-####################################################################################
+# ####################################################################################
+
+# class Solution:
+#     def maxSubArray(self, nums: List[int]) -> int:
+        
+#         for i in range(1,len(nums)):
+#             if nums[i-1]>=0:
+#                 nums[i]+=nums[i-1]
+#         return max(nums)
+
+
+
+
+
+
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        
-        for i in range(1,len(nums)):
-            if nums[i-1]>=0:
-                nums[i]+=nums[i-1]
-        return max(nums)
+        mx = -float('inf')
+        mn = 0
+        for i in nums:
+            mn = max(mn+i,i)
+            mx = max(mx,mn)
+        return mx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -80,19 +80,18 @@ class Solution:
         
         m,n = len(matrix), len(matrix[0])
         
-        res = [[None]*n for i in range(m)]
-        
         for i in range(m):
             for j in range(n):
+                
                 if matrix[i][j]==0:
-                    for k in range(n):
-                        res[i][k] = 0
+                    
                     for k in range(m):
-                        res[k][j] = 0
+                        if matrix[k][j]!=0: matrix[k][j] = None
+                    for k in range(n):
+                        if matrix[i][k]!=0: matrix[i][k] = None
         for i in range(m):
             for j in range(n):
-                if res[i][j]==0:
-                    matrix[i][j] = 0
+                if matrix[i][j]==None: matrix[i][j] = 0
         
 
 

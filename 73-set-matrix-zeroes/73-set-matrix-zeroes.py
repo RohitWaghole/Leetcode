@@ -1,5 +1,5 @@
-# T.C. -> O(N x M + (N + M))
-# S.C. -> O(1)
+# # T.C. -> O(N x M + (N + M))
+# # S.C. -> O(1)
 
 # class Solution:
 #     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -19,10 +19,10 @@
 #                 if matrix[i][j]=='a':
 #                     matrix[i][j] = 0
 
-##########################################################################################################
+# ##########################################################################################################
 
-# T.C. -> O(N x M)
-# S.C. -> O(N + M)
+# # T.C. -> O(N x M)
+# # S.C. -> O(N + M)
 
 # class Solution:
 #     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -39,23 +39,85 @@
 #                 if r[i]==0 or c[j]==0:
 #                     matrix[i][j] = 0
 
-##########################################################################################################
+# ##########################################################################################################
 
-# T.C. -> 2 x O(N x M)
-# S.C. -> O(1)
+# # T.C. -> 2 x O(N x M)
+# # S.C. -> O(1)
+
+# class Solution:
+#     def setZeroes(self, matrix: List[List[int]]) -> None:
+#         col0 = 1
+#         row = len(matrix)
+#         col = len(matrix[0])
+#         for i in range(row):
+#             if matrix[i][0]==0: col0=0
+#             for j in range(1,col):
+#                 if matrix[i][j]==0:
+#                     matrix[i][0] = matrix[0][j] = 0
+#         for i in range(row-1,-1,-1):
+#             for j in range(col-1,0,-1):
+#                 if matrix[i][0]==0 or matrix[0][j]==0:
+#                     matrix[i][j] = 0
+#             if col0==0: matrix[i][0] = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
-        col0 = 1
-        row = len(matrix)
-        col = len(matrix[0])
-        for i in range(row):
-            if matrix[i][0]==0: col0=0
-            for j in range(1,col):
+        
+        m,n = len(matrix), len(matrix[0])
+        
+        res = [[None]*n for i in range(m)]
+        
+        for i in range(m):
+            for j in range(n):
                 if matrix[i][j]==0:
-                    matrix[i][0] = matrix[0][j] = 0
-        for i in range(row-1,-1,-1):
-            for j in range(col-1,0,-1):
-                if matrix[i][0]==0 or matrix[0][j]==0:
+                    for k in range(n):
+                        res[i][k] = 0
+                    for k in range(m):
+                        res[k][j] = 0
+        for i in range(m):
+            for j in range(n):
+                if res[i][j]==0:
                     matrix[i][j] = 0
-            if col0==0: matrix[i][0] = 0
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

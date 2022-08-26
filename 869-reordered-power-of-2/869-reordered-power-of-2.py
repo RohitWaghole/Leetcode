@@ -8,12 +8,24 @@
 
 ##################################################################################################
 
+# class Solution:
+#     def reorderedPowerOf2(self, n: int) -> bool:
+        
+#         d = collections.Counter(str(n))
+#         for i in range(31):
+#             s = collections.Counter(str(2**i))
+#             if s==d:
+#                 return True
+#         return False
+
+##################################################################################################
+
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
         
-        d = collections.Counter(str(n))
+        d = Counter(str(n))
         for i in range(31):
-            s = collections.Counter(str(2**i))
+            s = Counter(str(1 << i))
             if s==d:
                 return True
         return False

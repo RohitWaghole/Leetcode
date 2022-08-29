@@ -1,3 +1,4 @@
+# USING MAP TO STORE THE DIAGONAL ELEMENTS
 # class Solution:
 #     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
 
@@ -20,6 +21,7 @@
 
 ##################################################################################################
 
+# DIRECTLY SORTING THE DEFAULTDICT USING SORTEDLIST
 from sortedcontainers import SortedList
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:

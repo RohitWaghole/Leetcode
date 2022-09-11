@@ -62,22 +62,43 @@
 
 ######################################################################################
 
+# class Solution:
+#     def maxProfit(self, prices: List[int]) -> int:
+        
+#         curr = [0,0]
+#         ahead = [0,0]
+#         n = len(prices)
+#         for ind in range(n-1,-1,-1):
+#             for buy in range(2):
+#                 profit = 0
+#                 if buy:
+#                     profit = max(-prices[ind] + ahead[0], 0 + ahead[1])
+#                 else:
+#                     profit = max( prices[ind] + ahead[1], 0 + ahead[0])
+#                 curr[buy] = profit
+#             ahead = curr
+#         return ahead[1]
+
+
+######################################################################################
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         
-        curr = [0,0]
-        ahead = [0,0]
-        n = len(prices)
-        for ind in range(n-1,-1,-1):
-            for buy in range(2):
-                profit = 0
-                if buy:
-                    profit = max(-prices[ind] + ahead[0], 0 + ahead[1])
-                else:
-                    profit = max( prices[ind] + ahead[1], 0 + ahead[0])
-                curr[buy] = profit
-            ahead = curr
-        return ahead[1]
+        profit = 0
+        for i in range(1,len(prices)):
+            if prices[i]>prices[i-1]:
+                profit += (prices[i]-prices[i-1])
+        return profit
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         

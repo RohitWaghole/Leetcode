@@ -57,8 +57,8 @@ class Solution:
                     start = mid + 1
             return False
         for i in matrix:
-            if binarySearch(i,target):
-                return True
+            if i[0]<=target<=i[-1]:
+                return binarySearch(i, target)
         return False
         
         

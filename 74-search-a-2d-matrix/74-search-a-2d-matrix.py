@@ -1,9 +1,9 @@
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        for i in matrix:
-            if target in i:
-                return True
-        return False
+# class Solution:
+#     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+#         for i in matrix:
+#             if target in i:
+#                 return True
+#         return False
 
     
 ####################################################################################
@@ -38,3 +38,49 @@ class Solution:
 #                 if self.binarysearch(i,target):
 #                     return True
 #         return False
+
+####################################################################################
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        
+        for i in matrix:
+            if target in i:
+                return True
+        return False
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

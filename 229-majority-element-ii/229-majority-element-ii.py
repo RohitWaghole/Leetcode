@@ -52,13 +52,12 @@ class Solution:
         a = nums.count(n1)
         b = nums.count(n2)
         
-        if a>major and b>major:
-            return [n1,n2]
+        res = []
         if a>major:
-            return [n1]
+            res.append(n1)
         if b>major:
-            return [n2]
-        return []
+            res.append(n2)
+        return res
     
     
     

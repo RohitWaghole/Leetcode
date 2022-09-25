@@ -59,3 +59,6 @@ class Solution:
         if b>major:
             return [n2]
         return []
+    
+    
+    

@@ -74,91 +74,17 @@ T.C. -> O(N)
 S.C. -> O(1)
 '''
 
-# class Solution:
-#     def rob(self, nums: List[int]) -> int:
-        
-#         prev2 = 0
-#         prev = nums[0]
-#         for i in range(1,len(nums)):
-#             take = nums[i]
-#             if i>1:
-#                 take += prev2
-#             notTake = prev
-#             curi = max(take,notTake)
-#             prev2 = prev
-#             prev = curi
-#         return prev
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Solution:
     def rob(self, nums: List[int]) -> int:
         
-        curr = nums[0]
-        prev = -1
+        prev2 = 0
+        prev = nums[0]
         for i in range(1,len(nums)):
-            
-            pick = nums[i]
+            take = nums[i]
             if i>1:
-                pick += prev
-            notPick = curr
-            prev = curr
-            curr = max(pick,notPick)
-            
-        return curr
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                take += prev2
+            notTake = prev
+            curi = max(take,notTake)
+            prev2 = prev
+            prev = curi
+        return prev

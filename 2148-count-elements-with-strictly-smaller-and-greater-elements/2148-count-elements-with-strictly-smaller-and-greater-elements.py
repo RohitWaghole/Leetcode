@@ -1,8 +1,9 @@
 class Solution:
     def countElements(self, nums: List[int]) -> int:
-        l = sorted(list(set(nums)))
-        d = Counter(nums)
         res = 0
-        for i in range(1,len(l)-1):
-            res += d[l[i]]
+        mx = max(nums)
+        mn = min(nums)
+        for i in nums:
+            if mn<i<mx:
+                res += 1
         return res

@@ -4,7 +4,6 @@ class Solution:
         t = [[''.join(sorted(v)),i] for i,v in enumerate(strs)]
         t.sort()
         temp = []
-        res = []
         tp = []
         result = []
         for i in range(len(t)):
@@ -15,11 +14,9 @@ class Solution:
                 temp.append(t[i])
                 tp.append(strs[t[i][1]])
             else:
-                res.append(temp)
                 result.append(tp)
                 tp = [strs[t[i][1]]]
                 temp = [t[i]]
         if temp!=[]:
-            res.append(temp)
             result.append(tp)
         return result

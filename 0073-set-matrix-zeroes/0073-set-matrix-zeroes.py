@@ -80,21 +80,19 @@ class Solution:
         
         m,n = len(matrix), len(matrix[0])
         
+        r = [-1]*m
+        c = [-1]*n
+        
         for i in range(m):
             for j in range(n):
                 if matrix[i][j]==0:
-                    for k in range(m):
-                        if matrix[k][j]!=0:matrix[k][j]='a'
-                    for k in range(n):
-                        if matrix[i][k]!=0:matrix[i][k]='a'
+                    r[i] = 0
+                    c[j] = 0
         for i in range(m):
             for j in range(n):
-                if matrix[i][j]=='a':
+                if r[i]==0 or c[j]==0:
                     matrix[i][j] = 0
-        
-
-
-
+                    
 
 
 

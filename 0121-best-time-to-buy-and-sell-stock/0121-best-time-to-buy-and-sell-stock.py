@@ -21,71 +21,14 @@
 
 ####################################################################################
 
-# class Solution:
-#     def maxProfit(self, prices: List[int]) -> int:
-        
-#         buy, sell = prices[0],0
-#         for stock in prices:
-#             if stock<buy:
-#                 buy = stock
-#             if stock - buy > sell:
-#                 sell = stock - buy
-#         return sell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         
-        b,s = prices[0],0
-        for i in prices:
-            if i<b:
-                b = i
-            if i-b>s:
-                s = i-b
-        return s
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        buy, sell = prices[0],0
+        for stock in prices:
+            if stock<buy:
+                buy = stock
+            if stock - buy > sell:
+                sell = stock - buy
+        return sell
 

@@ -54,10 +54,12 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         
         mx = nums[0]
-        mn = nums[0]
-        for i in range(1,len(nums)):
-            mn = max(nums[i],mn+nums[i])
-            mx = max(mx, mn)
+        s = 0
+        for i in nums:
+            s += i
+            mx = max(mx,s)
+            if s<0:
+                s = 0
         return mx
 
 

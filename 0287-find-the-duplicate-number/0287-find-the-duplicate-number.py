@@ -60,12 +60,10 @@ class Solution:
 #         return slow
 
 
-        dp = [0]*len(nums)
-        for i in nums:
-            dp[i-1] += 1
-        for i in range(len(nums)):
-            if dp[i]>1:
-                return i+1
+        d = Counter(nums)
+        for k,v in d.items():
+            if v>1:
+                return k
         
     
     

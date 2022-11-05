@@ -60,10 +60,10 @@ class Solution:
 #         return slow
 
 
-        d = Counter(nums)
-        for k,v in d.items():
-            if v>1:
-                return k
+        for i in nums:
+            if nums[abs(i)]<0:
+                return abs(i)
+            nums[abs(i)] *= -1
         
     
     

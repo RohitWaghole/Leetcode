@@ -17,54 +17,8 @@ class Solution:
         result = []
         f(0,candidates,target,[],result)
         return result
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##############################################################################################################
 
 # class Solution:
 #     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
